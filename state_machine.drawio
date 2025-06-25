@@ -1,0 +1,93 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.5 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.5">
+  <diagram name="Page-1" id="58cdce13-f638-feb5-8d6f-7d28b1aa9fa0">
+    <mxGraphModel dx="984" dy="572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="382b91b5511bd0f7-1" target="ddGPCLBjGYmsnnbJaNcZ-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="382b91b5511bd0f7-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;direction=south;" parent="1" vertex="1">
+          <mxGeometry x="140" y="265" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ddGPCLBjGYmsnnbJaNcZ-1" target="ddGPCLBjGYmsnnbJaNcZ-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-7" value="A0" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ddGPCLBjGYmsnnbJaNcZ-6">
+          <mxGeometry x="-0.0828" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-1" value="Текущее время&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="345" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.9;entryY=0.467;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ddGPCLBjGYmsnnbJaNcZ-3" target="ddGPCLBjGYmsnnbJaNcZ-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-23" value="A1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ddGPCLBjGYmsnnbJaNcZ-22">
+          <mxGeometry x="-0.0398" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-3" value="Текщая дата" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="345" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-4" value="отображение времени" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=110;height=50;" vertex="1" parent="1">
+          <mxGeometry x="270" y="160" width="350" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ddGPCLBjGYmsnnbJaNcZ-3" target="ddGPCLBjGYmsnnbJaNcZ-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="400" />
+              <mxPoint x="500" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-10" value="A0" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ddGPCLBjGYmsnnbJaNcZ-9">
+          <mxGeometry x="-0.1592" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-12" value="Легенда" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="30" width="340" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-13" value="A0 - короткое нажатие на кнопку энкодера&lt;div&gt;A1 - длинное нажатие на кнопку энкодера&lt;br&gt;A1 (delta) - поворот энкдера на delta&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="760" y="40" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-14" value="настройка" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=110;height=30;" vertex="1" parent="1">
+          <mxGeometry x="710" y="160" width="300" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-15" value="установка часов" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="800" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-16" value="установка минут" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="800" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-17" value="установка дня" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="800" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-18" value="установка месяца" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="800" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-19" value="установка года" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="800" y="590" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-21" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;direction=south;" vertex="1" parent="1">
+          <mxGeometry x="550" y="310" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.205;entryY=0.466;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ddGPCLBjGYmsnnbJaNcZ-1" target="ddGPCLBjGYmsnnbJaNcZ-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="566" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ddGPCLBjGYmsnnbJaNcZ-25" value="A1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="ddGPCLBjGYmsnnbJaNcZ-24">
+          <mxGeometry x="0.0694" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
