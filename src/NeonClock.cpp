@@ -211,22 +211,6 @@ void setup()
 
 void loop() 
   {
-   //rainbow();
-  //colorChase(CRGB::Red);
- //fireEffect();
- //singleDotFade(CRGB::Cyan);
- //rainbowWave(); 
- /*for(int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CRGB(0, 255, 0); //CRGB::Red;
-   }
-  FastLED.show();*/
-    /* for(int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CHSV((i*5 + millis()/10) % 255, 255, 255);
-  }
-  FastLED.show();
-  delay(30);*/
-
-
     indicate();
     process_encoder();
     led_process();
@@ -363,7 +347,7 @@ void loop()
               if (m_brightness > 100) m_brightness = 0;
               Serial.println(tm.Hour, DEC);
 
-               set_brightness(m_brightness);
+               led_set_brightness(m_brightness);
             }
             else
             if (m_indic_mode == INDICATION_MODE::COLOR)

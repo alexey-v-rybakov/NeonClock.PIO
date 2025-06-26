@@ -13,9 +13,9 @@ void led_process();
 void led_set_brightness(unsigned int br);
 // 
 // Установить режим работы
-unsigned int led_switch_mode(bool f_next);
+int led_switch_mode(int dir);
 //
 // Установить цвет
-unsigned int led_switch_coloe(bool f_next);
+int led_switch_color(int dir);
 
 #endif

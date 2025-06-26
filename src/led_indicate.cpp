@@ -35,37 +35,30 @@ const CRGB colorList[] = {
   };
 
 
+  const int numColor = sizeof(colorList) / sizeof(colorList[0]); // Количество функций в массиве
+
+
 
 
  
-typedef void (*LedprocessFunctionPtr)();
-// Массив указателей на функции
-LedprocessFunctionPtr LedProcessFunctions[] = 
-{
-    single_color,      
-    rainbow,
-    color_chase,
-    fire_effect,
-    single_dot_fade,
-    rainbowwave
-};
 
-const int numLedFunctions = sizeof(LedProcessFunctions) / sizeof(LedProcessFunctions[0]); // Количество функций в массиве
 
 
 // текущий цвет
-unsigned int m_color = 0;
+int m_color = 0;
 // текущий режим
-unsigned int m_led_mode = 0;
+int m_led_mode = 0;
 // текущая яркость
 uint8_t      m_led_brightness = 50;
+
+
 
 //
 // Функции отображения
 void single_color()
 {
-
-
+  fill_solid(leds, NUM_LEDS, colorList[m_color]);
+  FastLED.show();
 }
 
 void rainbow() 
@@ -77,16 +70,18 @@ void rainbow()
   delay(30);
 }
 
-void colorChase(CRGB color) {
+void color_chase() 
+{
   static int pos = 0;
   fill_solid(leds, NUM_LEDS, CRGB::Black);
-  leds[pos] = color;
+  leds[pos] = colorList[m_color];
   FastLED.show();
   delay(50);
   pos = (pos + 1) % NUM_LEDS;
 }
 
-void fireEffect() {
+void fire_effect() 
+{
   static byte heat[NUM_LEDS];
   const byte COOLING = 55;
   const byte SPARKING = 120;
@@ -112,16 +107,18 @@ void fireEffect() {
   delay(30);
 }
 
-void singleDotFade(CRGB color) {
+void single_dot_fade() 
+{
   static int pos = 0;
   fadeToBlackBy(leds, NUM_LEDS, 40);
-  leds[pos] = color;
+  leds[pos] = colorList[m_color];
   FastLED.show();
   delay(20);
   pos = (pos + 1) % NUM_LEDS;
 }
 
-void rainbowWave() {
+void rainbow_wave() 
+{
   static uint8_t hue = 0;
   for (int i = 0; i < NUM_LEDS; i++) {
     leds[i] = CHSV(hue + i * 5, 255, 255);
@@ -138,29 +135,61 @@ void init_led()
   FastLED.addLeds<LED_TYPE, DATA_PIN, COLOR_ORDER>(leds, NUM_LEDS);
   FastLED.setBrightness(m_led_brightness);
    for(int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = colorList[m_color];
+    leds[i] = CRGB::Blue;//colorList[m_color];
    }
   FastLED.show();
  }
+
+typedef void (*LedprocessFunctionPtr)();
+// Массив указателей на функции
+LedprocessFunctionPtr LedProcessFunctions[] = 
+{
+    single_color,      
+    rainbow,
+    color_chase,
+    fire_effect,
+    single_dot_fade,
+    rainbow_wave
+};
+
+const int numLedFunctions = sizeof(LedProcessFunctions) / sizeof(LedProcessFunctions[0]); // Количество функций в массиве
+// 
+// Установить режим работы
+int led_switch_mode(int dir)
+ {
+  m_color += dir;
+  if (m_color >= numColor) m_color = 0;
+  if (m_color < 0) m_color = (numColor - 1); 
+
+  return m_color;
+ }
+//
+// Установить цвет
+int led_switch_color(int dir)
+ {
+  m_led_mode += dir;
+  if (m_led_mode >= numLedFunctions) m_led_mode = 0;
+  if (m_led_mode < 0) m_led_mode = (numLedFunctions - 1); 
+
+  return m_led_mode;
+ }
+
 
 //
 // отобразить текущий режим
 void led_process()
 {
-
+  //LedProcessFunctions[m_led_mode]();
 
 }
 
-void set_brightness(unsigned int br)
+void led_set_brightness(unsigned int br)
  {
     FastLED.setBrightness(br);
     FastLED.show();
  }
 
-/*              if (m_color < 0)  m_color = (sizeof(colorList) / sizeof(CRGB)) - 1;
-              if (m_color > (int)((sizeof(colorList) / sizeof(CRGB)) - 1)) m_color = 0;
-               fill_solid(leds, NUM_LEDS, colorList[m_color]);
-               FastLED.show(); */
+
 
 
 
