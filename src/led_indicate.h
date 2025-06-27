@@ -10,12 +10,16 @@ void init_led();
 void led_process();
 //
 // Установить яркость
-void led_set_brightness(unsigned int br);
+int led_set_brightness(int dir);
+
 // 
 // Установить режим работы
 int led_switch_mode(int dir);
 //
 // Установить цвет
 int led_switch_color(int dir);
+//
+// Установить скорость
+int led_set_speed(int speed);
 
 #endif

@@ -40,27 +40,21 @@ void initTimer2_200Hz() {
   interrupts();
 }
 
-// Текущая яракость
-static int m_brightness = 00;
-
-
-
-// Текущий цвет
-static int m_color = 0;
-
 typedef enum INDICATION_MODE
   {
-    HOUR_MIN = 0,
-    DAY_MONTH   ,
-    YEAR        ,
-    BRIGHTNESS  ,
-    COLOR       ,
-    NUM_INDC_MODE,
-    SET_HOUR     ,
-    SET_MIN      ,
-    SET_DAY      ,
-    SET_MONTH    ,
-    SET_YEAR     ,
+    HOUR_MIN   = 0,
+    DAY_MONTH     ,
+    YEAR          ,
+    MODE          ,
+    BRIGHTNESS    ,
+    COLOR         ,
+    SPEED         ,
+    NUM_INDC_MODE ,
+    SET_HOUR      ,
+    SET_MIN       ,
+    SET_DAY       ,
+    SET_MONTH     ,
+    SET_YEAR      ,
     NUM_SET_MODE
   } INDICATION_MODE;
 
@@ -339,25 +333,25 @@ void loop()
         {
           if (enc_delta)
           {
+            if (m_indic_mode == INDICATION_MODE::MODE)
+            {
+              led_switch_mode(enc_delta);
+            }
+            else
             if (m_indic_mode == INDICATION_MODE::BRIGHTNESS)
             {
-              m_brightness = m_brightness + enc_delta;
-              Serial.println(m_brightness, DEC);
-              if (m_brightness < 0)  m_brightness = 100;
-              if (m_brightness > 100) m_brightness = 0;
-              Serial.println(tm.Hour, DEC);
-
-               led_set_brightness(m_brightness);
+              led_set_brightness(enc_delta);
             }
             else
             if (m_indic_mode == INDICATION_MODE::COLOR)
             {
-              m_color = m_color + enc_delta;
-/*              if (m_color < 0)  m_color = (sizeof(colorList) / sizeof(CRGB)) - 1;
-              if (m_color > (int)((sizeof(colorList) / sizeof(CRGB)) - 1)) m_color = 0;
-               fill_solid(leds, NUM_LEDS, colorList[m_color]);
-               FastLED.show(); */
+              led_switch_color(enc_delta);
             } 
+            else
+            if (m_indic_mode == INDICATION_MODE::SPEED)
+            {
+              led_set_speed(enc_delta);
+            }
             last_show_time = 0;
           }  
       }
@@ -416,11 +410,17 @@ void loop()
         case INDICATION_MODE::SET_YEAR:
           set_indicate_digits((tmYearToCalendar(tm.Year)/1000)%10, (tmYearToCalendar(tm.Year)/100)%10, (tmYearToCalendar(tm.Year)/10)%10, tmYearToCalendar(tm.Year)%10);
         break;
+        case INDICATION_MODE::MODE:
+          set_indicate_digits(0, 1, (led_switch_mode(0)/10)%10, led_switch_mode(0)%10);
+        break;
         case INDICATION_MODE::BRIGHTNESS:
-          set_indicate_digits(0, 1, (m_brightness/10)%10, m_brightness%10);
+          set_indicate_digits(0, 2, (led_set_brightness(0)/10)%10, led_set_brightness(0)%10);
         break;
         case INDICATION_MODE::COLOR:
-          set_indicate_digits(0, 2, (m_color/10)%10, m_color%10);
+          set_indicate_digits(0, 3, (led_switch_color(0)/10)%10, led_switch_color(0)%10);
+        break;
+        case INDICATION_MODE::SPEED:
+          set_indicate_digits(0, 4, (led_set_speed(0)/10)%10, led_set_speed(0)%10);
         break;
 
       default:
