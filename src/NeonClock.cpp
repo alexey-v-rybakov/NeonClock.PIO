@@ -8,6 +8,7 @@
 
 
 
+
 volatile uint16_t isrCounter = 0;
 volatile uint16_t isrDivider = 200; // по умолчанию 200 Гц => 1 раз в секунду
 
@@ -187,6 +188,8 @@ void setup()
   setLogicalFrequency(30); // Пользовательская логика — 2 Гц (мигание 2 раза в секунду)
 
   init_led();
+
+
 }
 
 
@@ -202,9 +205,51 @@ void setup()
  
 
 
+#define CMD_BUFFER_SIZE 32
+char cmdBuffer[CMD_BUFFER_SIZE];
+byte cmdPos = 0;
+
+
+void processSerialCommand(const char* cmd) {
+  if (strcmp(cmd, "M+") == 0) {
+    led_switch_mode(1);
+  } else if (strcmp(cmd, "M-") == 0) {
+    led_switch_mode(-1);
+  } else if (strcmp(cmd, "C+") == 0) {
+    led_switch_color(1);
+  } else if (strcmp(cmd, "C-") == 0) {
+    led_switch_color(-1);
+  } else if (cmd[0] == 'B') {
+    int value = atoi(cmd + 1);
+    led_set_brightness(value);
+  } else if (cmd[0] == 'S') {
+    int value = atoi(cmd + 1);
+    led_set_speed(value);
+  } else {
+    Serial.println("Unknown command");
+  }
+}
 
 void loop() 
   {
+
+
+while (Serial.available() > 0) {
+    char ch = Serial.read();
+
+    if (ch == '\n' || ch == '\r') {
+      if (cmdPos > 0) {
+        cmdBuffer[cmdPos] = '\0'; // завершение строки
+        processSerialCommand(cmdBuffer);
+         Serial.write(cmdBuffer);
+        cmdPos = 0;
+      }
+    } else {
+      if (cmdPos < CMD_BUFFER_SIZE - 1) {
+        cmdBuffer[cmdPos++] = ch;
+      }
+    }
+  }
     indicate();
     process_encoder();
     led_process();
